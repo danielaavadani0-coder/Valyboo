@@ -3,110 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Avădăni Valeria</title>
+    <title>CV Avădăni Valeria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&family=Dancing+Script&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
+        :root {
+            --bg-sidebar: #FDF7F2; /* Culoarea crem deschis din stânga */
+            --bg-main: #FFFFFF;
+            --text-main: #333333;
+            --font-name: 'Playfair Display', serif; /* Font elegant pentru nume */
+            --font-headings: 'Poppins', sans-serif; /* Font modern pentru subtitluri */
+            --font-body: 'Poppins', sans-serif; /* Font pentru textul de bază */
+            --font-script: 'Dancing Script', cursive; /* Font cursiv pentru titluri secțiuni */
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #f0f0f0;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
         }
-        .container {
-            max-width: 800px;
-            background: #fff;
-            margin: 0 auto;
-            padding: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
+
+        /* Containerul principal A4 */
+        .cv-container {
+            width: 210mm; /* Lățime standard A4 */
+            height: 297mm; /* Înălțime standard A4 */
+            background-color: var(--bg-main);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            overflow: hidden;
+            position: relative; /* Pentru poziționarea lalelelor */
         }
-        header {
-            text-align: center;
-            border-bottom: 2px solid #007BFF;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+
+        /* Coloana din stânga */
+        .sidebar {
+            width: 35%;
+            background-color: var(--bg-sidebar);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        h1 {
-            margin: 0;
-            color: #007BFF;
-            font-size: 2.5em;
+
+        .profile-pic-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 50px;
+            border: 5px solid white; /* Efect de ramă */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .info-section {
-            margin-bottom: 25px;
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        .info-section h2 {
-            font-size: 1.2em;
+
+        .sidebar-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .sidebar-title {
+            font-family: var(--font-script);
+            font-size: 2rem;
             color: #555;
-            text-transform: uppercase;
-            border-left: 4px solid #007BFF;
-            padding-left: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 2px;
+            background-color: #888;
+        }
+
+        .contact-item, .education-item {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
+            font-size: 0.9rem;
         }
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+
+        .contact-icon {
+            width: 20px;
+            margin-right: 15px;
+            opacity: 0.7;
         }
-        .detail-item {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
+
+        .year-tag {
+            background-color: #EAE3DC;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 10px;
         }
-        .detail-item strong {
-            display: block;
-            color: #007BFF;
+
+        .school-name {
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
         }
-        .interests {
-            background: #eef6ff;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #007BFF;
+
+        .school-address {
+            font-size: 0.85rem;
+            color: #666;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .school-address li::before {
+            content: "•";
+            color: #888;
+            margin-right: 8px;
+        }
+
+        /* Coloana din dreapta */
+        .main-content {
+            width: 65%;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-header {
+            margin-bottom: 50px;
+        }
+
+        .full-name {
+            font-family: var(--font-name);
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: var(--font-script);
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "•";
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .skills-list, .experience-list, .hobbies-list, .languages-list {
+            list-style: none;
+            padding-left: 30px;
+        }
+
+        .skills-list li, .experience-list li, .hobbies-list li, .languages-list li {
+            margin-bottom: 8px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .skills-list li::before, .experience-list li::before, .hobbies-list li::before, .languages-list li::before {
+            content: "•";
+            color: #555;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* Poziționarea lalelelor în colțul din dreapta jos */
+        .tulips-bg {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 350px; /* Ajustează dimensiunea */
+            opacity: 0.9;
+            z-index: 0;
+        }
+
+        /* Asigurăm că textul este deasupra imaginii cu lalele */
+        .main-content * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Media query pentru ecrane mici (mobile responsive) */
+        @media (max-width: 768px) {
+            .cv-container {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 40px 20px;
+            }
+
+            .main-content {
+                width: 100%;
+                padding: 40px 20px;
+            }
+
+            .full-name {
+                font-size: 2.5rem;
+            }
+
+            .tulips-bg {
+                width: 200px;
+                bottom: -10px;
+                right: -10px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Avădăni Valeria</h1>
-        <p>Curriculum Vitae</p>
-    </header>
-
-    <section class="info-section">
-        <h2>Informații Personale</h2>
-        <div class="details-grid">
-            <div class="detail-item">
-                <strong>Data Nașterii</strong>
-                04 Martie 2007
+    <div class="cv-container">
+        <aside class="sidebar">
+            <div class="profile-pic-container">
+                <img src="https://via.placeholder.com/180" alt="Avădăni Valeria" class="profile-pic">
             </div>
-            <div class="detail-item">
-                <strong>Zodie</strong>
-                Pești ♓
-            </div>
-        </div>
-    </section>
 
-    <section class="info-section">
-        <h2>Despre mine & Pasiuni</h2>
-        <div class="interests">
-            <p>Sunt o persoană entuziastă, născută sub semnul sensibil și intuitiv al Peștilor. Una dintre cele mai mari pasiuni ale mele este <strong>călătoritul</strong>. Îmi place să explorez locuri noi, să descopăr culturi diferite și să adun experiențe memorabile din întreaga lume.</p>
-        </div>
-    </section>
+            <section class="sidebar-section">
+                <h2 class="sidebar-title">Contact</h2>
+                <div class="contact-item">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/phone.png" alt="Telefon" class="contact-icon">
+                    <span>079904680</span>
+                </div>
+                <div class="contact-item">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/mail.png" alt="Email" class="contact-icon">
+                    <span>danielaavadani0@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/marker.png" alt="Adresă" class="contact-icon">
+                    <span>Strada Angela Păduraru 7</span>
+                </div>
+            </section>
 
-    <section class="info-section">
-        <h2>Educație & Obiective</h2>
-        <p><i>Aici poți adăuga detalii despre școala unde înveți sau proiectele la care participi.</i></p>
-        <ul>
-            <li>Elevă - [Numele Liceului Tău]</li>
-            <li>Interesată de dezvoltare personală și explorare culturală.</li>
-        </ul>
-    </section>
+            <section class="sidebar-section">
+                <h2 class="sidebar-title">Educația</h2>
+                <div class="education-item-details">
+                    <span class="year-tag">2014-2026</span>
+                    <p class="school-name">Liceul Teoretic cu Profil Real "Mihai Marinciuc"</p>
+                    <ul class="school-address">
+                        <li>Strada Ion Pelivan 30/2</li>
+                    </ul>
+                </div>
+            </section>
+        </aside>
 
-    <footer style="text-align: center; margin-top: 40px; font-size: 0.8em; color: #888;">
-        <p>&copy; 2024 - Creat de Avădăni Valeria</p>
-    </footer>
-</div>
+        <main class="main-content">
+            <header class="name-header">
+                <h1 class="full-name">Avădăni Valeria</h1>
+            </header>
 
-</body>
-</html>
+            <section class="main-section">
+                <h2 class="section-title">Experiența</h2>
+                <ul class="experience-list">
+                    <li>Participarea în proiecte școlare;</li>
+                    <li>Elaborarea activităților extrașcolare;</li>
+                    <li>Voluntar;</li>
+                    <li>Animator pentru copii;</li>
+                </ul>
+            </section>
+
+            <section class="main-section">
+                <h2 class="section-title">Aptitudini</h2>
+                <ul class="skills-list">
+                    <li>Înțelegătoare</li>
+                    <li>Sociabilă</li>
+                    <li>Artistică</li>
+                    <li>Lucru în echipă</li>
+                </ul>
+            </section>
+
+            <section class="main-section">
+                <h2 class="section-title">Hobby-uri</h2>
+                <ul class="hobbies-list">
+                    <li>Citit</li>
+                    <li>Sport</li>
+                    <li>Dansuri</li>
+                    <li>Înot</li>
+                </ul>
+            </section>
+
+            <section class="main-section">
+                <h2 class="section-title">Limbi</h2>
+                <ul class="languages-list">
+                    <li>Româna</li>
+                    <li>Rusa</li>
+                    <li>Engleza</li>
+                    <li>Franceza</li>
+                </ul>
+            </section>
+
+            <img src="https://via.placeholder.com/350x250?text=Lalele" alt="Lalele decorative" class="tulips-bg">
